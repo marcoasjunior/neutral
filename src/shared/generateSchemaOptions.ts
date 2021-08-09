@@ -1,4 +1,4 @@
-export default (model) => ({
+export default model => ({
 
     typegooseClass: model,
     schemaOptions: {

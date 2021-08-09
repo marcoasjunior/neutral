@@ -14,7 +14,7 @@ export class HealthController {
     @HealthCheck()
     healthCheck() {
         return this.health.check([
-            async () => this.http.pingCheck('local', 'http://localhost:3000'),
+            async () => this.http.pingCheck('local', 'http://localhost:3000/users'),
         ])
     }
 }
