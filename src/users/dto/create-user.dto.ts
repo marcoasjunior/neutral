@@ -1,7 +1,14 @@
-export type CreateUserDto = {
+import { IsEmail, IsString } from "class-validator";
 
-    name: string,
-    email: string,
-    contact: string,
+export class CreateUserDto {
+
+    @IsString()
+    name: string
+
+    @IsEmail()
+    email: string
+    
+    @IsString()
+    contact: string
 
 }

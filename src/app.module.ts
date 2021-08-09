@@ -11,7 +11,8 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot(),
     TypegooseModule.forRoot(process.env.MONGO_URI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useCreateIndex: true,
     }),
     UsersModule, 
     TerminusModule

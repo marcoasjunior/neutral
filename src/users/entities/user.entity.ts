@@ -1,17 +1,26 @@
 import { prop } from "@typegoose/typegoose";
 import { IsEmail, IsString } from "class-validator";
 
+
 export class User {
 
     @IsString()
-    @prop({ required: true, trim: true})
+    @prop({ required: true, trim: true })
     name: string
 
     @IsEmail()
-    @prop()
+    @prop({ required: true, trim: true, unique: true})
     email: string
 
-    @prop()
+    @IsString()
+    @prop({ required: true, trim: true })
     contact: string
 
+}
+
+export const UserSchemaOptions = {
+    typegooseClass: User,
+    schemaOptions: {
+        timestamps: true,
+    }
 }
