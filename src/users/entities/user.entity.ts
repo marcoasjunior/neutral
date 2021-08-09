@@ -1,7 +1,6 @@
 import { prop } from "@typegoose/typegoose";
 import { IsEmail, IsString } from "class-validator";
 
-
 export class User {
 
     @IsString()
@@ -18,9 +17,3 @@ export class User {
 
 }
 
-export const UserSchemaOptions = {
-    typegooseClass: User,
-    schemaOptions: {
-        timestamps: true,
-    }
-}
