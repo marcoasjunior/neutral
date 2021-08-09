@@ -1,26 +1,36 @@
 import { Injectable } from '@nestjs/common';
+import { ReturnModelType } from '@typegoose/typegoose';
+import { InjectModel } from 'nestjs-typegoose';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { User } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
-  }
 
-  findAll() {
-    return `This action returns all users`;
-  }
+    constructor(
+        @InjectModel(User) private readonly userModel: ReturnModelType < typeof User >
+    ) {}
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
+    async create(createUserDto: CreateUserDto) {
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
+        return await this.userModel.create(createUserDto)
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
-  }
+    }
+
+    findAll() {
+        return `This action returns all users`;
+    }
+
+    findOne(id: number) {
+        return `This action returns a #${id} user`;
+    }
+
+    update(id: number, updateUserDto: UpdateUserDto) {
+        return `This action updates a #${id} user`;
+    }
+
+    remove(id: number) {
+        return `This action removes a #${id} user`;
+    }
 }
