@@ -1,12 +1,24 @@
 import { Module } from '@nestjs/common';
-import { UsersModule } from './users/users.module';
-import { TerminusModule } from '@nestjs/terminus';
-import { HealthController } from './health/health.controller';
-import { TypegooseModule } from 'nestjs-typegoose';
 import { ConfigModule } from '@nestjs/config';
+import { TerminusModule } from '@nestjs/terminus';
+import { TypegooseModule } from 'nestjs-typegoose';
+import { ClientsModule } from './clients/clients.module';
+import { CompaniesModule } from './companies/companies.module';
+import { HealthController } from './health/health.controller';
+import { IntegrationsModule } from './integrations/integrations.module';
+import { LocationsModule } from './locations/locations.module';
+import { OperatorsModule } from './operators/operators.module';
+import { PartnersModule } from './partners/partners.module';
+import { PartnershipsModule } from './partnerships/partnerships.module';
+import { PendenciesModule } from './pendencies/pendencies.module';
+import { PortAuditsModule } from './port-audits/port-audits.module';
+import { PortsModule } from './ports/ports.module';
+import { RegionsModule } from './regions/regions.module';
+import { UsersModule } from './users/users.module';
 
 
 @Module({
+    
   imports: [
     ConfigModule.forRoot(),
     TypegooseModule.forRoot(process.env.MONGO_URI, {
@@ -15,9 +27,22 @@ import { ConfigModule } from '@nestjs/config';
       useCreateIndex: true,
     }),
     UsersModule, 
-    TerminusModule
+    TerminusModule, 
+    CompaniesModule, 
+    OperatorsModule, 
+    PartnersModule, 
+    PartnershipsModule, 
+    LocationsModule, 
+    ClientsModule, 
+    PortsModule, 
+    PendenciesModule, 
+    PortAuditsModule, 
+    IntegrationsModule, 
+    RegionsModule
 ],
   controllers: [HealthController],
   providers: [],
+
 })
+
 export class AppModule {}
