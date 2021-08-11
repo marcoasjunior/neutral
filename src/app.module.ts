@@ -15,6 +15,10 @@ import { PortAuditsModule } from './port-audits/port-audits.module';
 import { PortsModule } from './ports/ports.module';
 import { RegionsModule } from './regions/regions.module';
 import { UsersModule } from './users/users.module';
+import { IntegrationTemplatesModule } from './integration-templates/integration-templates.module';
+import { IspsModule } from './isps/isps.module';
+import { AreasModule } from './areas/areas.module';
+import { IntegrationTemplatesModule } from './integration-templates/integration-templates.module';
 
 
 @Module({
@@ -38,7 +42,7 @@ import { UsersModule } from './users/users.module';
     PendenciesModule, 
     PortAuditsModule, 
     IntegrationsModule, 
-    RegionsModule
+    RegionsModule, IntegrationTemplatesModule, AreasModule, IspsModule
 ],
   controllers: [HealthController],
   providers: [],

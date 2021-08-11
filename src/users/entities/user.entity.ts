@@ -11,6 +11,7 @@ export class User {
     @prop({ required: true, trim: true, unique: true})
     email: string
 
+    
     @IsString()
     @prop({ required: true, trim: true })
     contact: string
